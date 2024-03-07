@@ -1,0 +1,54 @@
+{% extends "app1/adminmaster.html"%}
+{%block content%}
+<br><br>
+<div class="container">
+    <form method="post">
+        {%csrf_token%}
+<table>
+    <tr>
+        <td>نام</td>
+        <td><input type="text" name= "fname"></td>
+    </tr>
+    <tr>
+        <td>نام خانوادگی</td>
+        <td><input type="text" name= "lname"></td>
+    </tr>
+    <tr>
+        <td>ایمیل</td>
+        <td><input type="text" name= "email"></td>
+    </tr>
+    <tr>
+        <td>نام کاربری</td>
+        <td><input type="text" name="username"></td>
+    </tr>
+    <tr>
+        <td>کلمه عبور</td>
+        <td><input type="password" name= "password"></td>
+    </tr>
+    <tr>
+        <td>تکرار کلمه عبور</td>
+        <td><input type="password" name= "rpassword"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td> <input type="submit" value="ثبت نام"></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            {%if errors%}
+                {%for i in errors%}
+                   <div style="color: red;">{{i}}</div> 
+                {%endfor%}
+            {%endif%}
+        </td>
+    </tr>
+</table>
+</div>
+</form>
+<br><br><br><br><br><br><br><br>
+
+
+
+
+
+{%endblock%}

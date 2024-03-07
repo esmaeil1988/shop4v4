@@ -1,0 +1,120 @@
+{% extends "app1/adminmaster.html"%}
+{%block content%}
+<!DOCTYPE html>
+<html dir="rtl">
+<head dir="rtl">
+	<title>سبد خرید</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/style2.css">
+</head>
+<body>
+	<main class="page">
+	 	<section class="shopping-cart dark">
+	 		<div class="container">
+		        <div class="block-heading">
+					<br>
+		          <h3>سبد خرید شما</h3>
+		        </div>
+				<br>
+		        <div class="content">
+	 				<div class="row">
+	 					<div class="col-md-12 col-lg-8">
+	 						<div class="items">
+
+
+
+
+							{%for item in p%}
+				 				<div class="product">
+				 					<div class="row">
+					 					<div class="col-md-3">
+					 						<img class="img-fluid mx-auto d-block image" src="{{item.product.img.url}}">
+					 					</div>
+					 					<div class="col-md-8">
+					 						<div class="info">
+						 						<div class="row">
+							 						<div class="col-md-5 product-name">
+							 							<div class="{{item.product.title}}">
+															<br>
+								 							<a href="#">{{item.product.title}}</a>
+								 							<div class="product-info">
+									 							
+																
+																 <li> گارانتی {{item.product.garenty}}</li>									 						</div>
+																 <span>{{item.product.price}} تومان</span>
+
+									 					</div>
+														<br>
+														
+							 						</div>
+													<form action="/editqnt/{{item.product.id}}" method="post">
+													{%csrf_token%}
+							 						<div class="col-md-6 quantity">
+							 							<label for="quantity">تعداد:</label>
+							 							<input type="number" name="qnt" value ="{{item.qnt}}" class="form-control quantity-input" >
+														<input type="submit" value="اعمال">
+							 						</div>
+													</form>
+
+							
+													<br>
+													 <a href="/delcart/{{item.product.id}}">حذف محصول از سبد خرید </a>
+
+							 					</div>
+							 				</div>
+					 					</div>
+					 				</div>
+				 				</div>
+								{%endfor%}
+
+
+
+
+				 				
+
+
+
+
+				 				
+
+
+
+
+				 			</div>
+			 			</div>
+			 			<div class="col-md-12 col-lg-4">
+			 				<div class="summary">
+			 					<h3>خلاصه</h3>
+			 					<div class="summary-item"><span class="text">جمع فاکتور </span><span class="price"> {{t}}</span></div>
+			 					<div class="summary-item"><span class="text">تخفیف</span><span class="price">0</span></div>
+			 					<div class="summary-item"><span class="text">هزینه ارسال</span><span class="price">50000</span></div>
+			 					<div class="summary-item"><span class="text">جمع کل</span><span class="price">0</span></div>
+								<br>
+			 					<button type="button" class="btn btn-primary btn-lg btn-block">پرداخت</button>
+				 			</div>
+			 			</div>
+		 			</div> 
+		 		</div>
+	 		</div>
+		</section>
+	</main>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+{%endblock%}
+
+
+
+
+
+
+
+
+
+

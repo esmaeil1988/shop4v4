@@ -1,0 +1,47 @@
+{% extends "app1/adminmaster.html"%}
+{%block content%}
+
+<div class="container">
+    <form method="post" style="margin: 30px;">
+    {%csrf_token%}
+    <table>
+        <tr>
+            <td>{{f.fname.label}}:</td>
+            <td>{{f.fname}}</td>
+        </tr>
+        <tr>
+            <td>{{f.lname.label}}:</td>
+            <td>{{f.lname}}</td>
+        </tr>
+        <tr>
+            <td>{{f.email.label}}:</td>
+            <td>{{f.email}}</td>
+        </tr>
+        <tr>
+            <td>{{f.address.label}}:</td>
+            <td>{{f.address}}</td>
+        </tr>
+        <tr>
+            <td>{{f.phonenumber.label}}:</td>
+            <td>{{f.phonenumber}}</td>
+        </tr>
+        <tr>
+            <td>{{f.content.label}}:</td>
+            <td>{{f.content}}</td>
+        </tr>
+        <tr>
+            <td>{% if er %}
+                <div style="color: red;">
+                    فرم خطا دارد
+                </div>
+                {%endif%}</td>
+            </tr>
+        <tr>
+            <td> <input type="submit" value="ارسال">
+            </td>
+        </tr>
+    </table>
+    </form>
+</div>
+
+{%endblock%}

@@ -1,0 +1,112 @@
+{%extends "app1/master.html"%}
+{%block content%}
+{%load static%}
+<div class="container">
+   <div class="row">
+      <div class="col-md-12">
+         <div class="single-box">
+            <div class="row">
+               <div class="col-md-7">
+                  <h5>{{prd.title}}</h5>
+                  
+                  <hr>
+                  <div class="row">
+                     <div class="col-md-7">
+                        <div class="single-content-right">
+                           <ul class="brand-ul">
+                              <li>برند : <a href="#">{{prd.brand}}</a></li>
+                              <li>دسته بندی : <a href="#"> {{prd.category.first}} </a></li>
+                           </ul>
+                           <br>
+                           <h6>مشخصات مختصر محصول :</h6><br>
+                           <ul class="product-ul">
+                              <li></li>
+                              <li>{{prd.moshakhasat}}</li>
+                              <br>
+                              <h6>معرفی اجمالی  محصول :</h6><br>
+                              <p>{{prd.tozih}}</p>
+                              
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="col-md-5">
+                        <div class="single-content-left">
+                           <ul>
+                              <span>وضعیت : موجود در انبار</span><br><br>
+                              <li>{{prd.garenty}}</li>
+                              <br>
+                              <li>
+                                 رنگ بندی : 
+                                 <ul>
+                                    <li><i class="fa fa-square white"></i>سفید</li>
+                                    <li><i class="fa fa-square black"></i>مشکی</li>
+                                    <li><i class="fa fa-square silver"></i>نقره ای</li>
+                                    <li><i class="fa fa-square gold"></i>طلایی</li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <hr>
+                  <h3>{{prd.price}} تومان</h3>
+                  <div  class="btn-single">
+                     <a href="/addtocart/{{prd.id}}"><i class="fa fa-cart-plus"></i>خرید آنلاین</a>
+                  </div>
+               </div>
+               <div class="col-md-5">
+                  <div class="single-img">
+                     <figure>
+                        <img src="{{prd.img.url}}" class="w-100 s-img" data-zoom-image="img/single-tablet.jpg">
+                     </figure>
+                  </div>
+
+
+                 
+                  <div class="single-img-slider">
+                     <div class="owl-carousel owl-theme ov-single">
+                        {%for a in aks%}
+                        <div class="item">
+                           <a data-fancybox="gallery"  href="{{a.img.url}}"><img src="{{a.img.url}}" class="w-100"></a>
+                        </div>
+                        {%endfor%}
+
+                     </div>
+                  </div>
+                  
+
+
+
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!---------------------------------->  
+<div class="container">
+   <span class="releated-products">محصولات مرتبط</span>
+   <hr>
+   <div class="row">
+      <div class="col-md-12">
+         <div class="single-two-slider">
+            <div class="owl-carousel owl-theme ov-single-two">
+
+               {%for itm in category%}
+               <div class="item">
+                  <figure>
+                     <a href=""><img src="{%static 'app1/img/Canon_EOS_400D.png'%}" class="w-100" /></a>
+                  </figure>
+                  <h5>{{itm.category.title}}</h5>
+                  <span>1,200,000 تومان</span>
+               </div>
+               {%endfor%}
+               
+
+               
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{%endblock%}

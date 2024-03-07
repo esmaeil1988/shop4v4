@@ -1,0 +1,56 @@
+{%extends "app1/master.html"%}
+{%block content%}
+
+{%for category in cats%}
+<div class="container">
+   <div class="row">
+      <div class="col-md-12">
+         <div class="two-slider">
+            <h4>{{category.title}} </h4>
+            
+            <div class="owl-carousel owl-theme ov2">
+               {%for item in category.getprod%}
+               
+               <div class="item">
+                  <figure>
+                     <a href="showproduct/{{item.id}}"><img src="{{item.img.url}}" class="w-100" /></a>
+                  </figure>
+                  <h5 dir="rtl"><a href="showproduct/{{item.id}}">{{item.title}}</a></h5>
+                  <span dir="ltr">{{item.price}} تومان</span>
+                  
+               </div>
+               {%endfor%}
+               
+               
+
+
+
+
+               
+               
+            </div>
+            
+         </div>
+      </div>
+      <p><a href="showcategory/{{category.id}}">مشاهده همه </a> </p>
+   </div>
+</div>
+{%endfor%}
+
+
+
+
+
+
+
+
+
+<!---------------------------------->
+
+
+
+
+
+
+
+{%endblock%}
